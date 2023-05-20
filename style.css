@@ -26,15 +26,12 @@ button.type_1 {
     background-color: lightgreen;
     margin: 5px;
     padding: 2px;
+    justify-content: space-between;
 
     &.is-completed {
         background-color: rgba(144, 238, 144, 0.2);
         > span {
             text-decoration: line-through;
         }
-    }
-
-    > button {
-        margin-left: auto;
     }
 }

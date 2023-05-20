@@ -127,16 +127,19 @@ function _renderTodoItem(itemModel) {
     if (itemModel.completed) {
         item.classList.add("is-completed");
     }
+    const container = document.createElement('div');
 
     const check = document.createElement('input');
     check.type="checkbox";
     check.checked = itemModel.completed;
     check.onclick = () => toogleItem(itemModel.id);
-    item.appendChild(check);
+    container.appendChild(check);
 
     const itemText = document.createElement("span");
     itemText.innerText = itemModel.todo;
-    item.appendChild(itemText);
+    container.appendChild(itemText);
+
+    item.appendChild(container);
 
     const itemButton = document.createElement("button");
     itemButton.innerHTML = "-";
