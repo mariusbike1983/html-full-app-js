@@ -10,6 +10,10 @@ button:not(:disabled) {
     cursor: pointer;
 }
 
+#button-async {
+    background-color: orange;
+}
+
 button.type_2 {
     background-color: yellow;
 }

@@ -15,7 +15,8 @@
         <button id="button-remove-all" class="type_2" onclick = removeAll()>Remove all</button>
         <button id="toggle-show" class="type_2" onclick = toggleShow()>Hide completed</button>
 
-        <button class="type_2" onclick = loadExtenalTodos()>Load extenal data</button>
+        <button class="type_2" onclick = loadExtenalTodos()>Load extenal data blocking</button>
+        <button id="button-async" class="type_2" onclick = loadExternalTodosAsync()>Load extenal data async</button>
         <div id="todo-list"></div>
     </div>
     <script src="logic.js"></script>
