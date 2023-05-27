@@ -23,10 +23,26 @@ async function loadExtenalTodos() {
     _renderTodoList();
 }
 
+async function loadExtenalTodos2() {
+    _getTodoList().innerText = "Loading...";
+    _getTodoList().style.display = "";
+    window.todos = await _fetchData2();
+    _renderTodoList();
+}
+
 function loadExternalTodosAsync() {
     _getTodoList().innerText = "Loading...";
     _getTodoList().style.display = "";
     _asyncFetchData(todos => {
+        window.todos = todos;
+        _renderTodoList();
+    })
+}
+
+function loadExternalTodosAsync2() {
+    _getTodoList().innerText = "Loading...";
+    _getTodoList().style.display = "";
+    _asyncFetchData2(todos => {
         window.todos = todos;
         _renderTodoList();
     })
@@ -87,21 +103,6 @@ function _createNewModelItem(itemText) {
         completed: false
     }
     return newItem;
-}
-
-async function _fetchData() {
-    // using top level await to fetch the data
-    const todos = await fetch('https://dummyjson.com/todos?limit=5')
-        .then(response => response.json())
-        .then(json => json.todos);
-    return todos;
-}
-
-function _asyncFetchData(callback) {
-    fetch('https://dummyjson.com/todos?limit=5')
-        .then(response => response.json())
-        .then(json => json.todos)
-        .then(todos => callback(todos));
 }
 
 function _removeItem(itemId) {

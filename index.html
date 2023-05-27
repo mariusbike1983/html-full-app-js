@@ -10,15 +10,28 @@
 <body>
     <h1>Todo list</h1>
     <div id="app">
-        <input id="todo-text-input" onkeyup="inputChanged(event)"/>
-        <button id="button-add" class="type_2" onclick = addTodo()>Add</button>
-        <button id="button-remove-all" class="type_2" onclick = removeAll()>Remove all</button>
-        <button id="toggle-show" class="type_2" onclick = toggleShow()>Hide completed</button>
+        <div class="toolbar">
+            <div>
+                <input id="todo-text-input" onkeyup="inputChanged(event)"/>
+                <button id="button-add" class="type_2" onclick = addTodo()>Add</button>
+                <button id="button-remove-all" class="type_2" onclick = removeAll()>Remove all</button>
+                <button id="toggle-show" class="type_2" onclick = toggleShow()>Hide completed</button>
+            </div>
+            <div class="loading">
+                <button id="button-sync1" class="type_2" onclick = loadExtenalTodos() 
+                    title="Blocking with top-level async/await, using .then chaining">Load external</button>
+                <button id="button-sync2" class="type_2" onclick = loadExtenalTodos2() 
+                    title="Blocking with top-level async/await, using await chaining">Load external</button>
 
-        <button class="type_2" onclick = loadExtenalTodos()>Load extenal data blocking</button>
-        <button id="button-async" class="type_2" onclick = loadExternalTodosAsync()>Load extenal data async</button>
+                <button id="button-async1" class="type_2" onclick = loadExternalTodosAsync() 
+                    title="Non-blocking using .then chaining">Load extenal data async</button>
+                <button id="button-async2" class="type_2" onclick = loadExternalTodosAsync2() 
+                    title="Non-blocking using the await chaining">Load extenal data async</button>
+            </div>
+        </div>
         <div id="todo-list"></div>
     </div>
+    <script src="fetch.js"></script>
     <script src="logic.js"></script>
 </body>
 </html>

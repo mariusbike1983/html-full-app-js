@@ -1,3 +1,13 @@
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.loading {
+    padding: 3px;
+    background-color: bisque;        
+}
+
 #todo-list {
     margin-top: 10px;
     padding: 2px;
